@@ -17,13 +17,6 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Configure file logging with rotation
-from logging.handlers import RotatingFileHandler
-
-handler = RotatingFileHandler('addon.log', maxBytes=1000000, backupCount=5)
-handler.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
 
 # Configure cache (using simple cache for Vercel compatibility)
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
